@@ -1,0 +1,49 @@
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Selamat Datang di Toko Satrio");
+
+        int hargaraket = 30000;
+        int hargabarbel = 20000;
+        int hargabolasepak = 25000;
+        int hargajersey = 50000;
+
+        string username = "kasir1";
+        string pw = "admin123";
+
+        Console.Write("Masukkan ID kasir: ");
+        string inputID = Console.ReadLine();
+        Console.Write("Masukkan pw: ");
+        string inputpw = Console.ReadLine();
+
+        if (inputID == username && inputpw == pw)
+        {
+            Console.WriteLine("Login Berhasil");
+
+            Console.Write("Masukkan jumlah raket yang dibeli: ");
+            int jumlahraket = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Masukkan jumlah barbel yang dibeli: ");
+            int jumlahbarbel = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Masukkan jumlah bola sepak yang dibeli: ");
+            int jumlahbolasepak = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Masukkan jumlah jersey yang dibeli: ");
+            int jumlahjersey = Convert.ToInt32(Console.ReadLine());
+
+            int totalHarga = (hargaraket * jumlahraket) + (hargabarbel * jumlahbarbel) + (hargabolasepak * jumlahbolasepak) + (hargajersey * jumlahjersey);
+            Console.WriteLine($"Total harga sebelum diskon: {totalHarga}");
+
+            double diskon = 0.015;
+            double hargadiskon = totalHarga * diskon;
+            double hargaakhir = totalHarga - hargadiskon;
+
+            Console.WriteLine($"Total harga setelah diskon 1.5%: {hargaakhir}");
+        }
+        else
+        {
+            Console.WriteLine("ID atau pw salah. Akses ditolak.");
+        }
+    }
+}
