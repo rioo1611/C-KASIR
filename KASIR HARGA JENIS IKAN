@@ -1,0 +1,49 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Pilih jenis ikan yang ingin dibeli:");
+        Console.WriteLine("1. Ikan Tuna (20.000)");
+        Console.WriteLine("2. Ikan Kerapu (50.000)");
+        Console.WriteLine("3. Ikan Marlin (100.000)");
+        
+        Console.Write("Masukkan pilihan kamu: ");
+        int pilihan = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Masukkan jumlah ikan yang ingin dibeli: ");
+        int jumlah = Convert.ToInt32(Console.ReadLine());
+
+        int totalHarga = 0;
+
+        switch (pilihan)
+        {
+            case 1:
+                totalHarga = 20000 * jumlah;
+                Console.WriteLine("Anda memilih Ikan Tuna.");
+                break;
+            case 2:
+                totalHarga = 50000 * jumlah;
+                Console.WriteLine("Anda memilih Ikan Kerapu.");
+                break;
+            case 3:
+                totalHarga = 100000 * jumlah;
+                Console.WriteLine("Anda memilih Ikan Marlin.");
+                break;
+            default:
+                Console.WriteLine("Pilihan tidak valid.");
+                return;
+        }
+
+        // Cek jika total harga lebih dari 500.000
+        if (totalHarga > 500000)
+        {
+            totalHarga = (int)(totalHarga * 0.10); // Diskon 10%
+            Console.WriteLine("Anda mendapatkan diskon 10%!");
+        }
+
+        // Tampilkan total harga
+        Console.WriteLine($"Total harga yang harus dibayar: {totalHarga:N0}");
+    }
+}
