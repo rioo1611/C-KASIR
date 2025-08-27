@@ -1,0 +1,50 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Harga barang
+        int hargaMobil = 50000;
+        int hargaRobot = 200000;
+        int hargaBoneka = 30000;
+
+        // Akun kasir
+        string kasirID = "kasir1";
+        string kasirPassword = "login12";
+
+        // Login kasir
+        Console.Write("Masukkan ID kasir: ");
+        string inputID = Console.ReadLine();
+        Console.Write("Masukkan password kasir: ");
+        string inputPassword = Console.ReadLine();
+
+        if (inputID == kasirID && inputPassword == kasirPassword)
+        {
+            Console.WriteLine("Login berhasil!");
+
+            // Input jumlah barang yang dibeli
+            Console.Write("Masukkan jumlah mobil mainan yang dibeli: ");
+            int jumlahMobil = int.Parse(Console.ReadLine());
+            Console.Write("Masukkan jumlah robot mainan yang dibeli: ");
+            int jumlahRobot = int.Parse(Console.ReadLine());
+            Console.Write("Masukkan jumlah boneka yang dibeli: ");
+            int jumlahBoneka = int.Parse(Console.ReadLine());
+
+            // Hitung total harga sebelum diskon
+            int totalHarga = (jumlahMobil * hargaMobil) + (jumlahRobot * hargaRobot) + (jumlahBoneka * hargaBoneka);
+            Console.WriteLine($"Total harga sebelum diskon: {totalHarga}");
+
+            // Hitung total harga setelah diskon 7%
+            double diskon = 0.07;
+            double hargaDiskon = totalHarga * diskon;
+            double hargaAkhir = totalHarga - hargaDiskon;
+
+            Console.WriteLine($"Total harga setelah diskon 7%: {hargaAkhir}");
+        }
+        else
+        {
+            Console.WriteLine("ID atau password salah. Akses ditolak.");
+        }
+    }
+}
